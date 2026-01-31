@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dayon</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+</head>
+<body
+  style="background-image: url('https://raw.githubusercontent.com/Dayoncyber/birthday-music/refs/heads/main/Pink%20Aesthetic%20Wallpaper%20Lockscreen-Charming%20Mobile%20Wallpaper.jpeg'); background-size: cover;"
+  class="flex justify-center h-screen items-center"
+>
+  <div
+    id="card"
+    class="bg-white border px-10 py-8 border-4 border-pink-300 shadow-lg shadow-pink-300 rounded-xl text-center animate__animated animate__backInDown m-8 w-96 max-h-[90vh] overflow-y-auto"
+  >
+    <h1 class="text-3xl text-pink-400"></h1>
+    <h1 class="text-4xl text-pink-500 font-bold animate__animated animate__pulse animate__infinite">
+      Falyaa💕
+    </h1>
+    <button
+      onclick="changeCard()"
+      class="p-2 bg-pink-500 text-white rounded mt-5 hover:bg-pink-700 transition ease-in w-full animate__animated animate__delay-1s animate__tada"
+    >
+      Click Here
+    </button>
+  </div>
+
+  <audio id="music" loop src="https://github.com/Dayoncyber/birthday-music/raw/refs/heads/main/happy-birthday-258264.mp3"></audio>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+  <script>
+    let step = 1; // ✅ DITAMBAHKAN
+
+    const defaults = {
+      spread: 360,
+      ticks: 100,
+      gravity: 0,
+      decay: 0.94,
+      startVelocity: 30,
+      shapes: ["heart"],
+      colors: ["#FFB6C1", "#F8C8DC", "#FFD1DC", "#FD6C9E"], // ✅ DIBETULKAN
+    };
+
+    confetti({ ...defaults, particleCount: 50, scalar: 2 });
+    confetti({ ...defaults, particleCount: 25, scalar: 3 });
+    confetti({ ...defaults, particleCount: 10, scalar: 4 });
+
+    let card = document.getElementById("card");
+    let music = document.getElementById("music");
+
+    const jadianDate = new Date("2025-10-28"); // ✅ FORMAT TANGGAL BENAR
+
+    function duration() {
+      const now = new Date();
+      const days = Math.floor((now - jadianDate) / (1000*60*60*24));
+      const months = Math.floor(days / 30);
+      return { days, months };
+    }
+
+    function changeCard() {
+      music.play();
+      const { days, months } = duration();
+
+      if (step === 1) {
+        card.innerHTML = `
+        <h1 class="font-semibold break-words animate__animated animate__zoomIn">
+          Selamat ulang tahun yaa genooku 🥳✨,
+
+Di hari kamu dilahirkan, dunia mungkin terlihat biasa saja. Tapi buat aku, hari itu adalah awal dari banyak hal indah yang belum dunia sadari.
+
+Terima kasih karena sudah hadir di hidupku.
+Kamu bukan cuma seseorang yang aku cintai, tapi juga rumah—tempat aku pulang saat lelah, tempat aku belajar sabar, dan alasan aku ingin menjadi versi diriku yang lebih baik.
+
+Aku tahu aku bukan pasangan yang sempurna kadang aku salah. Tapi satu hal yang tidak pernah berubah, rasa sayang dan pilihanku untuk tetap bersama kamu, hari ini, besok, dan seterusnya.
+
+Di ulang tahunmu ini, aku tidak hanya mendoakan kebahagiaanmu, tapi juga kebahagian kita. Semoga kamu selalu dikelilingi hal-hal baik, dan semoga aku masih diberi kesempatan untuk berjalan di sampingmu, menemani setiap proses, tawa, dan doamuu.
+
+Selamat sayangg,
+Semoga setiap langkahmu terasa ringan karena kamu tau ada aku yang selalu ada, mencintaimuu
+        </h1>
+
+        <h2 class="mt-3 animate__animated animate__fadeIn">- Dion -</h2>
+        <button onclick="changeCard()" class="mt-5 w-full p-2 bg-pink-500 text-white rounded">
+          Lanjut 💕
+        </button>`;
+        step++;
+      }
+
+      else if (step === 2) {
+        card.innerHTML = `
+        <h2 class="text-xl font-bold text-pink-500 animate__animated animate__fadeIn">
+          💖 Hari Jadian Kita 💖
+        </h2>
+
+        <p class="mt-2">28 Oktober 2025</p>
+
+        <p class="mt-4 text-sm text-gray-600">
+          Sudah bersama <b>${months}</b> bulan
+          (<b>${days}</b> hari)
+        </p>
+
+        <button onclick="changeCard()" class="mt-5 w-full p-2 bg-pink-500 text-white rounded">
+          Foto Kenangaan 📸
+        </button>`;
+        step++;
+      }
+
+      else if (step === 3) { <!-- ✅ DIBETULKAN DARI STEP 4 -->
+        card.innerHTML = `
+        <div class="mt-6">
+          <h3 class="text-xl font-bold text-pink-600 mb-2">FAV 🎞️</h3>
+          <div class="flex gap-4 overflow-x-auto p-2">
+            <img src="https://raw.githubusercontent.com/Dayoncyber/birthday-music/refs/heads/main/IMG-20250724-WA0234.jpg" class="rounded-xl w-40 h-40 object-cover" />
+            <img src="https://raw.githubusercontent.com/Dayoncyber/birthday-music/refs/heads/main/IMG-20250926-WA0035.jpg" class="rounded-xl w-40 h-40 object-cover" />
+            <img src="https://raw.githubusercontent.com/Dayoncyber/birthday-music/refs/heads/main/IMG_20251004_212830_441.jpg" class="rounded-xl w-40 h-40 object-cover" />
+            <img src="https://raw.githubusercontent.com/Dayoncyber/birthday-music/refs/heads/main/1759385184169.jpg" class="rounded-xl w-40 h-40 object-cover" />
+            <img src="https://raw.githubusercontent.com/Dayoncyber/birthday-music/refs/heads/main/IMG_20251018_201848_312.jpg" class="rounded-xl w-40 h-40 object-cover" />
+            <img src="https://raw.githubusercontent.com/Dayoncyber/birthday-music/refs/heads/main/IMG-20251029-WA0039.jpg" class="rounded-xl w-40 h-40 object-cover" />
+            <img src="https://raw.githubusercontent.com/Dayoncyber/birthday-music/refs/heads/main/motion_photo_6590780588326086229.jpg" class="rounded-xl w-40 h-40 object-cover" />
+            <img src="https://raw.githubusercontent.com/Dayoncyber/birthday-music/refs/heads/main/motion_photo_825730861251468095.jpg" class="rounded-xl w-40 h-40 object-cover" />
+            <img src="https://raw.githubusercontent.com/Dayoncyber/birthday-music/refs/heads/main/IMG-20260112-WA0255.jpg" class="rounded-xl w-40 h-40 object-cover" />
+          </div>
+        </div>
+
+        <button onclick="refresh()" class="p-2 bg-slate-600 text-white rounded mt-5 w-full">
+          Close
+        </button>`;
+      }
+    }
+
+    function refresh() {
+      music.pause();
+      music.currentTime = 0;
+      location.reload();
+    }
+  </script>
+</body>
+</html>
